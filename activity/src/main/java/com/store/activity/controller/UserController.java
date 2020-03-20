@@ -32,7 +32,7 @@ public class UserController {
     }
     @PostMapping("/register")
     @Transactional
-    public BaseResponse addUser(User user ){
+    public BaseResponse addUser(@RequestBody User user ){
         if(userService.queryUserCount(user)==0){
             userService.addUser(user);
         }else {

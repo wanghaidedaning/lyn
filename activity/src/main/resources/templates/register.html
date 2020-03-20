@@ -32,7 +32,7 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form action="/lyn/register" method="post">
+                  <form id="save">
                     <div class="form-group">
                       <input id="register-username" class="input-material" type="text" name="userName" placeholder="请输入用户名/姓名" >
 								      <div class="invalid-feedback">
@@ -120,7 +120,15 @@
     			if(flagName&&flagPas&&flagPass){
     				localStorage.setItem("name",name);
     				localStorage.setItem("passWord",passWord);
-    				location="/register"
+                  $.ajax({
+                    type: 'post',
+                    url: '/lyn/register',
+                    data:{"userName":name,"userPassword":passWord}, //参数值
+                    success: function(data) {
+                      alert(1)
+                     // location.href="./index";
+                    }
+                  });
     			}else{
     				if(!flagName){
     					$("#register-username").addClass("form-control is-invalid");

@@ -6,9 +6,11 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @TableName("c_user")
-public class User {
+public class User implements Serializable {
 
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;//实体类的唯一标志
