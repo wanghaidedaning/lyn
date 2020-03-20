@@ -3,12 +3,14 @@ package com.store.activity.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 @Data
 @TableName("c_user")
 public class User {
-    @TableId
+
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;//实体类的唯一标志
     @TableField(value = "user_name")
     private String userName;//名称
